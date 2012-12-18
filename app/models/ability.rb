@@ -7,7 +7,7 @@ class Ability
     if user.role? :administrator
       can :manage, :all
     elsif user.role? :operator
-      can :manage, Post
+      can :manage, Musica
     else
       can :read, :all
     end
