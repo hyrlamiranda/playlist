@@ -1,5 +1,6 @@
 class MusicasController < ApplicationController
-
+  before_filter :authenticate_user!
+  load_and_authorize_resource
   # GET /musicas
   # GET /musicas.json
   def index

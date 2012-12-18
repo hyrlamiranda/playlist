@@ -1,4 +1,9 @@
 Playlist::Application.routes.draw do
+  resources :roles
+
+
+  devise_for :users
+  resources :users
   get "home/index"
 
   resources :musicas
