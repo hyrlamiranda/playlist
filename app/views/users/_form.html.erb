@@ -27,10 +27,12 @@
   <%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %>
 </div>
-<div class="field">
-  <%= f.label :role %><br />
-  <%= f.select :role_id, @roles.collect { |a| [a.name, a.id] } %>
+<% for role in Role.find(:all) %>
+<div>
+  <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
+  <%= role.name %>
 </div>
+<% end %>
 <% end %>
 <div class="actions">
   <%= f.submit %>

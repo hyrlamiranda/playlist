@@ -28,7 +28,6 @@ class UserController < ApplicationController
   def new
     @user = User.new
     @current_method = "new"
-    @roles = Role.all
 
     respond_to do |format|
       format.html # new.html.erb
