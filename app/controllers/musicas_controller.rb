@@ -43,7 +43,7 @@ class MusicasController < ApplicationController
   # POST /musicas.json
   def create
     @musica = Musica.new(params[:musica])
-
+    @musica.user_id = current_user.id
     respond_to do |format|
       if @musica.save
         format.html { redirect_to @musica, notice: 'Musica was successfully created.' }
