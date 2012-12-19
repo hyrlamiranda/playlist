@@ -13,7 +13,7 @@
   <tr>
     <td><%= musica.nome %></td>
     <td><%= musica.autor %></td>
-    <% if current_user == musica.user_id %>
+    <% if current_user.id == musica.user_id %>
       <td><%= link_to 'Mostrar', musica %></td>
       <td><%= link_to 'Editar', edit_musica_path(musica) %></td>
       <td><%= link_to 'Apagar', musica, method: :delete, data: { confirm: 'Are you sure?' } %></td>
