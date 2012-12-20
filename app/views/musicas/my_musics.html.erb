@@ -1,0 +1,27 @@
+<h1>Minhas musicas</h1>
+
+<table class="table">
+  <tr>
+    <th>Nome</th>
+    <th>Autor</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @musics.each do |musica| %>
+  <tr>
+    <td><%= musica.nome %></td>
+    <td><%= musica.autor %></td>
+    <% if current_user.id == musica.user_id %>
+      <td><%= link_to 'Mostrar', musica %></td>
+      <td><%= link_to 'Editar', edit_musica_path(musica) %></td>
+      <td><%= link_to 'Apagar', musica, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nova Musica', new_musica_path, :class => 'btn btn-primary' %>

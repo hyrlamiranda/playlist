@@ -19,9 +19,11 @@
         <a class="brand" href="#">Playlist</a>
         <div class="nav-collapse collapse">
           <ul class="nav">
-            <li><a href="/">Login</a></li>
             <li><a href="/musicas">Musicas</a></li>
             <% if user_signed_in? %>
+            <li>
+              <%= link_to 'Minhas Musicas', :controller => 'musicas', :action => 'my_musics' %>
+            </li>
             <li>
               <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
             </li>

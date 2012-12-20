@@ -23,6 +23,15 @@ class MusicasController < ApplicationController
     end
   end
 
+  def my_musics
+    @musics = Musica.where(:user_id => current_user.id)
+
+    respond_to do |format|
+      format.html
+      format.json{ render json: @musica }
+    end
+  end
+
   # GET /musicas/new
   # GET /musicas/new.json
   def new
